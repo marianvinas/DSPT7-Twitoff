@@ -12,7 +12,6 @@ class User(DB.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
-
 class Tweet(DB.Model):
     id = DB.Column(DB.Integer, primary_key=True)
     tweet = DB.Column(DB.String(280), unique=True, nullable=False)
