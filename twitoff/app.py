@@ -1,5 +1,6 @@
 from flask import Flask
 from .db_model import DB, User
+from .db_model import DB, Tweet
 
 
 def create_app():
@@ -21,10 +22,12 @@ def create_app():
 
         return f'{username} has been added to the DB!'
 
-    
     @app.route('/<tweet>/<user_id>')
-    def tweet(tweet, user_id):
-        tweet = Tweet(tweet=tweet, user_id=user_id)
+    def tweet(tweet, user_id, username):
+        tweet = Tweet(tweet=tweet, user_id=user_id, username=username)
+        #DB.session.add(tweet)
+        #DB.session.commit()
+
         return f'{username} post a tweet!'
 
     return app
