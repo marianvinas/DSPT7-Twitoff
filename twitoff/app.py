@@ -12,7 +12,8 @@ def create_app():
 
     @app.route('/')
     def root():
-        return 'Welcome to Twitoff!'
+        #return 'Welcome to Twitoff!'
+        return render_tmplate('base.html', title='Home', users=User.query.all())
 
     @app.route('/<username>/<followers>')
     def add_user(username, followers):
