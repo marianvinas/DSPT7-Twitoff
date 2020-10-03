@@ -13,7 +13,7 @@ def create_app():
     @app.route('/')
     def root():
         #return 'Welcome to Twitoff!'
-        return render_tmplate('base.html', title='Home', users=User.query.all())
+        return render_template('base.html', title='Home', users=User.query.all())
 
     @app.route('/user', methods=['POST'])
     @app.route('/user/<name>', methods=['GET'])
