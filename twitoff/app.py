@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from .db_model import DB, User
+from .db_model import DB, User, Tweet
 from .twitter import add_user_tweepy
 from .predict import predict_user
 
@@ -7,13 +7,12 @@ from .predict import predict_user
 def create_app():
     '''Create and configure an instance of our Flask application'''
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////Users/marianvinas/DSPT7-Twitoff/twitoff.sqlite"  # for absolute path- mac
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////Users/marianvinas/DSPT7-Twitoff/twitoff-demo.sqlite3"  # for absolute path- mac
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     DB.init_app(app)  # Connect Flask app to SQLAlchemy DB
 
     @app.route('/')
     def root():
-        #return 'Welcome to Twitoff!'
         return render_template('base.html', title='Home', users=User.query.all())
 
     @app.route('/user', methods=['POST'])
@@ -31,6 +30,7 @@ def create_app():
             tweets = []
             
         return render_template('user.html', title=name, tweets=tweets, message=message)
+
     @app.route('/compare', methods=['POST'])
     def compare(message=''):
         user1 = request.values['user1']
