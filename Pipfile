@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 jupyter = "*"
 matplotlib = "*"
+pylint = "*"
+pylint-flask = "*"
 
 [packages]
 pandas = "*"
@@ -16,6 +18,7 @@ tweepy = "*"
 python-dotenv = "*"
 spacy = "*"
 jupyter = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.8"
