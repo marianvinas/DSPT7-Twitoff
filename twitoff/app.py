@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from .db_model import DB, User, Tweet
+from .db_model import DB, User
 from .twitter import add_user_tweepy
 from .predict import predict_user
 
@@ -28,7 +28,7 @@ def create_app():
         except Exception as e:
             print(f'Error adding {name}: {e}')
             tweets = []
-            
+
         return render_template('user.html', title=name, tweets=tweets, message=message)
 
     @app.route('/compare', methods=['POST'])
