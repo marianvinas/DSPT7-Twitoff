@@ -52,7 +52,7 @@ def create_app():
     def reset():
         DB.drop_all()
         DB.create_all()
-        return render_template('base.html', title='All Tweets Updated!', users=User.query.all())
+        return render_template('base.html', title='Reset Database!', users=User.query.all())
 
     @app.route('/update', methods=['GET'])
     def update():
