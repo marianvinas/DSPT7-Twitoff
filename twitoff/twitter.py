@@ -17,7 +17,7 @@ TWITTER = tweepy.API(TWITTER_AUTH)
 #nlp = spacy.load('en_core_web_md', disable=['tagger', 'parser'])
 
 # Load SpaCy pre-trained model
-nlp = spacy.load('spacy_md_model')
+nlp = spacy.load('spacy_sm_model')
 
 
 def vectorize_tweet(nlp, tweet_text):
